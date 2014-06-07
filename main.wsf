@@ -1,0 +1,17 @@
+<job>
+<script language="JavaScript" src="util_file.js"></script>
+<script language="JavaScript" src="test.js"></script>
+<script language="JavaScript">
+  var test = new Test();
+
+  test.echo("Test Test");
+
+  var util_file = new Util_File();
+
+  // util_file.echo("Util_File");
+  var files = util_file.createFileList("C:\\");
+  WScript.Echo(files.count);
+
+
+</script>
+</job>
