@@ -1,17 +1,15 @@
 <job>
-<script language="JavaScript" src="util_file.js"></script>
-<script language="JavaScript" src="test.js"></script>
+<script language="JavaScript" src="main.js"></script>
 <script language="JavaScript">
-  var test = new Test();
+  var uf = new Util_File();
+  var files = [];
 
-  test.echo("Test Test");
+  files = uf.createFileList("C:\\python27");
+  WScript.Echo("count:" + files.length);
 
-  var util_file = new Util_File();
-
-  // util_file.echo("Util_File");
-  var files = util_file.createFileList("C:\\");
-  WScript.Echo(files.count);
-
+  for ( var i = 0; i<files.length; i++) {
+    WScript.Echo(files[i].Name);
+  };
 
 </script>
 </job>
