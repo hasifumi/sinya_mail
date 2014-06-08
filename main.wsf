@@ -4,11 +4,19 @@
   var uf = new Util_File();
   var files = [];
 
-  files = uf.createFileList("C:\\python27");
+  files = uf.createFileList("C:\\test");
   WScript.Echo("count:" + files.length);
 
   for ( var i = 0; i<files.length; i++) {
-    WScript.Echo(files[i].Name);
+    WScript.Echo((i+1) + ": " +files[i].Name);
+  };
+
+  files = []
+  files = uf.createFileList("C:\\testb");
+  WScript.Echo("count:" + files.length);
+
+  for ( var i = 0; i<files.length; i++) {
+    WScript.Echo((i+1) + ": " +files[i].Name);
   };
 
 </script>

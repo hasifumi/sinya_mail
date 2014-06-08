@@ -32,13 +32,21 @@ Util_File = (function() {
   };
 
   Util_File.prototype.createFileList = function(inFolderName) {
-    var e1, file, fsoFolder, result;
+    var e1, e2, file, fsoFolder, r, result;
     if (!this.fso.FolderExists("" + inFolderName)) {
       return [];
     }
     WScript.Echo("" + inFolderName + " exists!");
     result = [];
     fsoFolder = this.fso.GetFolder("" + inFolderName);
+    e2 = new Enumerator(fsoFolder.SubFolders);
+    e2.moveFirst();
+    while (!e2.atEnd()) {
+      r = new Array();
+      r = this.createFileList(e2.item());
+      result.concat(r);
+      e2.moveNext();
+    }
     e1 = new Enumerator(fsoFolder.Files);
     e1.moveFirst();
     while (!e1.atEnd()) {
